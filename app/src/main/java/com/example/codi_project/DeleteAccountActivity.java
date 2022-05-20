@@ -50,7 +50,6 @@ public class DeleteAccountActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Void unused) {
                 DeleteImage(ID);
-
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

@@ -10,7 +10,7 @@
         android:layout_weight="1"
         android:text="home fragment"
         android:textSize="34sp" />
-    <!--
+
     <RelativeLayout
         android:id="@+id/test_frame"
         android:layout_width="306dp"
@@ -19,6 +19,15 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="100dp">
+
+        <ImageView
+            android:id="@+id/test_image"
+            android:layout_width="306dp"
+            android:layout_height="385dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="88dp"
+            android:background="@android:color/transparent" />
 
         <TextView
             android:id="@+id/test_category"
@@ -30,21 +39,51 @@
             android:layout_marginTop="34dp"
             android:autoSizeTextType="uniform"
             android:fontFamily="@font/comfortaa"
-            android:lineHeight="40sp" />
+            android:lineHeight="40sp"
+            android:text="캐주얼"
+            android:textAppearance="@style/test_style" />
 
+        <TextView
+            android:id="@+id/test_profile_ID"
+            android:layout_width="80dp"
+            android:layout_height="18dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="515dp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/comfortaa"
+            android:lineHeight="40sp"
+            android:text="jcity_boy"
+            android:textAppearance="@style/test_style" />
+
+        <TextView
+            android:id="@+id/test_profile_like"
+            android:layout_width="50dp"
+            android:layout_height="18dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="243dp"
+            android:layout_marginTop="515dp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/comfortaa"
+            android:gravity="center"
+            android:lineHeight="18sp"
+            android:text=""
+            android:textAppearance="@style/test_style" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/test_profile_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="500dp"
+            android:background="@drawable/ellipse" />
 
     </RelativeLayout>
-    -->
 
 
 
-
-
-
-
-
-
-
-
-    
 </RelativeLayout>

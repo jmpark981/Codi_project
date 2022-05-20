@@ -138,7 +138,9 @@ public class ShowAccount extends Fragment {
         mStorageReference.child(path).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Glide.with(getActivity()).load(uri).into(profile_img);
+                if (getActivity() != null) {
+                    Glide.with(getActivity()).load(uri).into(profile_img);
+                }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
