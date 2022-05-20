@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +44,9 @@ public class ShowAccount extends Fragment {
     private CircleImageView profile_img;
     private ImageButton plus_icon;
     private AppCompatButton delete_move_Btn;
-    private TextView show_username, show_id, show_level, cody_count;
+    private TextView show_username, show_id, show_level, level;
+    private ImageView trophy;
+    private RelativeLayout membership_rectangle;
     private String ID;
     private Uri imageUri;
     private FirebaseFirestore db;
@@ -60,8 +63,10 @@ public class ShowAccount extends Fragment {
         show_username=view.findViewById(R.id.show_username);
         show_id=view.findViewById(R.id.show_id);
         show_level=view.findViewById(R.id.show_level);
-        cody_count=view.findViewById(R.id.cody_count);      //코디 추천수 데이터 어디에..?
         delete_move_Btn=view.findViewById(R.id.delete_move_Btn);
+        trophy=view.findViewById(R.id.trophy);
+        level=view.findViewById(R.id.level);
+        membership_rectangle=view.findViewById(R.id.membership_rectangle);
         db=FirebaseFirestore.getInstance();
         mStorageReference= FirebaseStorage.getInstance().getReference();
         return view;
@@ -103,6 +108,7 @@ public class ShowAccount extends Fragment {
                     show_username.setText(name);
                     show_id.setText("@"+ID);
                     show_level.setText("#"+membership);
+                    setUpMemberShip(membership);
                 }else{
                     Toast.makeText(context, "Document not exists", Toast.LENGTH_SHORT).show();
                 }
@@ -113,6 +119,18 @@ public class ShowAccount extends Fragment {
                 Toast.makeText(context, "Document error", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void setUpMemberShip(String membership) {       //membership에 따라 색상 변경
+        if(membership.equals("VIP")){
+            trophy.setBackgroundResource(R.drawable.trophy_background2);
+            level.setText(membership);
+            membership_rectangle.setBackgroundResource(R.drawable.rectangle_7);
+        }else{
+            trophy.setBackgroundResource(R.drawable.trophy_background);
+            level.setText(membership);
+            membership_rectangle.setBackgroundResource(R.drawable.rectangle_5);
+        }
     }
 
     private void setUpImage(String ID) {        //firebase storage에서 이미지 받아온다

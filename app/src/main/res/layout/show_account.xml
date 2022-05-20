@@ -83,14 +83,14 @@
 
 
     <RelativeLayout
-        android:id="@+id/rectangle_1"
+        android:id="@+id/membership_rectangle"
         android:layout_width="306dp"
         android:layout_height="163dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="441dp"
-        android:background="@drawable/rectangle_5"
+        android:background="@android:color/transparent"
         android:elevation="4dp">
 
         <ImageView
@@ -101,7 +101,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="47dp"
-            android:background="@drawable/trophy_background" />
+            android:background="@android:color/transparent" />
 
         <TextView
             android:id="@+id/membership_"
@@ -118,7 +118,7 @@
             android:textAppearance="@style/card_membership" />
 
         <TextView
-            android:id="@+id/family"
+            android:id="@+id/level"
             android:layout_width="119dp"
             android:layout_height="35dp"
             android:layout_alignParentLeft="true"
@@ -130,34 +130,6 @@
             android:textAppearance="@style/card_level" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/cody_text"
-        android:layout_width="78dp"
-        android:layout_height="24dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="213dp"
-        android:layout_marginTop="615dp"
-        android:fontFamily="@font/comfortaa"
-        android:gravity="center_horizontal|center_vertical"
-        android:lineHeight="18sp"
-        android:text="@string/some_id"
-        android:textAppearance="@style/some_id" />
-
-    <TextView
-        android:id="@+id/cody_count"
-        android:layout_width="50dp"
-        android:layout_height="30dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="291dp"
-        android:layout_marginTop="613dp"
-        android:fontFamily="@font/comfortaa"
-        android:gravity="center_horizontal|center_vertical"
-        android:lineHeight="18sp"
-        android:text="@string/some_num"
-        android:textAppearance="@style/some_id" />
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/delete_move_Btn"
         android:layout_width="120dp"
@@ -165,7 +137,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="221dp"
-        android:layout_marginTop="655dp"
+        android:layout_marginTop="630dp"
         android:background="@drawable/rectangle_2"
         android:fontFamily="@font/comfortaa"
         android:lineHeight="18sp"

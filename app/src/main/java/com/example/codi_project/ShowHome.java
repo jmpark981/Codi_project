@@ -15,6 +15,9 @@ public class ShowHome extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.show_home, container, false);
+
+
+
         return view;
     }
 }
