@@ -43,9 +43,9 @@ public class ShowHome extends Fragment {
     private List<String> sports_list= new ArrayList<>();
     private List<String> casual_list= new ArrayList<>();
     private List<String> office_list= new ArrayList<>();
-    private String full_path1="디자이너_코디/jmp/sports";
-    private String full_path2="디자이너_코디/jmp/sports";
-    private String full_path3="디자이너_코디/jmp/sports";
+    private String full_path1="디자이너_코디/jmp/sports";     //나중에 intent로 전달 받으면 ID부분 수정
+    private String full_path2="디자이너_코디/jmp/casual";
+    private String full_path3="디자이너_코디/jmp/office";
 
 
     @Nullable
@@ -102,7 +102,7 @@ public class ShowHome extends Fragment {
 
     }
 
-    private void CheckList(List<String> list) {
+    private void CheckList(List<String> list) {     //잘 출력 하는 지 테스트용
         Log.d("PPPTAG", Integer.toString(sports_list.size()));
         for(String item: sports_list){
             Log.d("PPPTAG", item);
@@ -112,8 +112,8 @@ public class ShowHome extends Fragment {
 
 
 
-    private void getClothesImage(String ID, String Clothes_Type, String Designer_ID) {
-        String path=ID+"_"+Clothes_Type+"_"+Designer_ID+".jpg";
+    private void getClothesImage(String ID, String Clothes_Type, String Designer_ID) {      //사진 가져와서 imageview에 넣는 부분
+        String path=ID+"_"+Clothes_Type+"_"+Designer_ID+".jpg";     //나중에 path를 부여받으면 윗부분 수정하면 될 듯
         Log.d("PPPTAG123", path);
         mStorageReference.child(path).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -132,7 +132,7 @@ public class ShowHome extends Fragment {
         });
     }
 
-    private void getDesignerProfile(String Designer_ID) {
+    private void getDesignerProfile(String Designer_ID) {       //디자이너 프로필 가져오기 
         db.collection("person")
                 .document("designer")
                 .collection("id")
@@ -157,7 +157,7 @@ public class ShowHome extends Fragment {
         });
     }
 
-    private void getDesignerImage(String Designer_ID) {
+    private void getDesignerImage(String Designer_ID) {     //디자이너 이미지 가져오기
         String path=Designer_ID+"_photo"+".jpg";
         mStorageReference.child(path).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -174,7 +174,7 @@ public class ShowHome extends Fragment {
         });
     }
 
-    private static String formatNumber(long count) {
+    private static String formatNumber(long count) {        //좋아요 숫자 표현
         if (count < 1000) return "" + count;
         int exp = (int) (Math.log(count) / Math.log(1000));
         return String.format("%.1f %c", count / Math.pow(1000, exp),"kMGTPE".charAt(exp-1));
