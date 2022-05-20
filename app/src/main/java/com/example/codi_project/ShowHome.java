@@ -21,7 +21,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShowHome extends Fragment {
     private Context context;
@@ -31,7 +35,17 @@ public class ShowHome extends Fragment {
     private Uri imageUri;
     private FirebaseFirestore db;
     private StorageReference mStorageReference;
-    private String ID="jmp", Clothes_Type="sports", Designer_ID ="jaylee";
+    private String image_String="jmp_sports_jaylee";
+    private String ID, Clothes_Type, Designer_ID;
+    //private String ID="jmp", Clothes_Type="sports", Designer_ID ="jaylee";
+
+
+    private List<String> sports_list= new ArrayList<>();
+    private List<String> casual_list= new ArrayList<>();
+    private List<String> office_list= new ArrayList<>();
+    private String full_path1="디자이너_코디/jmp/sports";
+    private String full_path2="디자이너_코디/jmp/sports";
+    private String full_path3="디자이너_코디/jmp/sports";
 
 
     @Nullable
@@ -39,6 +53,14 @@ public class ShowHome extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.show_home, container, false);
         context=container.getContext();
+
+        String[] temp=image_String.split("_");
+        ID=temp[0];
+        Clothes_Type=temp[1];
+        Designer_ID=temp[2];
+
+        Log.d("PPPTAG", ID+"/"+Clothes_Type+"/"+Designer_ID);
+
         test_category=view.findViewById(R.id.test_category);
         test_image=view.findViewById(R.id.test_image);
         test_profile_img=view.findViewById(R.id.test_profile_img);
@@ -53,7 +75,42 @@ public class ShowHome extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         getClothesImage(ID, Clothes_Type, Designer_ID);
         getDesignerProfile(Designer_ID);
+        ListUp(full_path1, sports_list);
+        //ListUp(full_path2, casual_list);
+        //ListUp(full_path3, office_list);
     }
+
+
+
+    private void ListUp(String full_path, List<String> list) {          //안에 있는 이미지 싹 다 긁어오기
+        mStorageReference.child(full_path).listAll().addOnSuccessListener(new OnSuccessListener<ListResult>() {
+            @Override
+            public void onSuccess(ListResult listResult) {
+                Log.d("PPPTAG99999", "hahahaaha");
+                for(StorageReference item: listResult.getItems()){
+                    //Log.d("PPPTAG12345", item.getName());
+                    list.add(item.getName());
+                }
+                CheckList(list);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(context, "Get List Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    private void CheckList(List<String> list) {
+        Log.d("PPPTAG", Integer.toString(sports_list.size()));
+        for(String item: sports_list){
+            Log.d("PPPTAG", item);
+        }
+    }
+
+
+
 
     private void getClothesImage(String ID, String Clothes_Type, String Designer_ID) {
         String path=ID+"_"+Clothes_Type+"_"+Designer_ID+".jpg";
