@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Codi_project">
+        <!-- 로그인 화면  -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,15 +23,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- 회원가입 하기 -->
         <activity
             android:name=".CreateAccountActivity"
             android:exported="true"/>
+        <!-- 비밀번호 바꾸기 화면 -->
         <activity
             android:name=".ChangePasswordActivity"
             android:exported="true"/>
+        <!-- 회원 삭제 화면  -->
         <activity
             android:name=".DeleteAccountActivity"
             android:exported="true"/>
+        <!-- 하단바가 들어있는 곳 : 여기 위에 프래그먼트가 들어감  -->
         <activity
             android:name=".MainFrame"
             android:exported="true"/>
