@@ -82,6 +82,16 @@
             android:layout_marginTop="500dp"
             android:background="@drawable/ellipse" />
 
+        <ImageButton
+            android:id="@+id/test_profile_like_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="508dp"
+            android:background="@drawable/designer_like_icon"/>
+
     </RelativeLayout>
 
 

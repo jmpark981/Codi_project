@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_frame"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -13,19 +14,19 @@
         android:layout_marginTop="88dp"
         android:background="@android:color/transparent" />
 
-        <TextView
-            android:id="@+id/item_category"
-            android:layout_width="149dp"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="34dp"
-            android:autoSizeTextType="uniform"
-            android:fontFamily="@font/comfortaa"
-            android:lineHeight="40sp"
-            android:text="캐주얼"
-            android:textAppearance="@style/test_style" />
+    <TextView
+        android:id="@+id/item_category"
+        android:layout_width="149dp"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="34dp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/comfortaa"
+        android:lineHeight="40sp"
+        android:text="캐주얼"
+        android:textAppearance="@style/test_style" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,18 +46,28 @@
 
         <TextView
             android:id="@+id/item_profile_ID"
-            android:layout_width="80dp"
-            android:layout_height="18dp"
+            android:layout_width="110dp"
+            android:layout_height="11dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
             android:autoSizeTextType="uniform"
             android:fontFamily="@font/comfortaa"
             android:lineHeight="40sp"
             android:text="jcity_boy"
             android:textAppearance="@style/test_style" />
 
+        <ImageButton
+            android:id="@+id/item_profile_like_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70dp"
+            android:background="@drawable/designer_like_icon"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/item_profile_like"
@@ -65,7 +76,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
-            android:layout_marginLeft="120dp"
+            android:layout_marginLeft="10dp"
             android:autoSizeTextType="uniform"
             android:fontFamily="@font/comfortaa"
             android:gravity="center"
