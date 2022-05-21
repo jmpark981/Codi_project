@@ -47,7 +47,6 @@ public class ShowHome extends Fragment {
     private String ID, Clothes_Type, Designer_ID;
     //private String ID="jmp", Clothes_Type="sports", Designer_ID ="jaylee";
 
-
     private List<String> sports_list= new ArrayList<>();
     private List<String> casual_list= new ArrayList<>();
     private List<String> office_list= new ArrayList<>();
@@ -91,11 +90,11 @@ public class ShowHome extends Fragment {
         test_profile_like_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(false){           //이 부분 고쳐야 되는데 모르겠음 ? -> 꽉찬 하트가 나왔을 시
+                if(true){           //이 부분 고쳐야 되는데 모르겠음
                     Log.d("PPPP", "HSSHSSHSH");
                     DesignerLikeUpdate(ID, Designer_ID, 1);
                     test_profile_like_icon.setBackgroundResource(R.drawable.designer_like_icon2);
-                }else if(true){        //빈 하트가 나왔을 시
+                }else if(false){        //빈 하트가 나왔을 시 (이것은 안하기로 결정)
                     Log.d("PPPP", "HSSHSSHSH12");
                     DesignerLikeUpdate(ID, Designer_ID, -1);
                     test_profile_like_icon.setBackgroundResource(R.drawable.designer_like_icon);

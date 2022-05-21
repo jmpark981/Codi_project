@@ -20,6 +20,16 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="100dp">
 
+        <ImageButton
+            android:id="@+id/test_profile_like_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="508dp"
+            android:background="@drawable/designer_like_icon" />
+
         <ImageView
             android:id="@+id/test_image"
             android:layout_width="306dp"
@@ -28,20 +38,6 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="88dp"
             android:background="@android:color/transparent" />
-
-        <TextView
-            android:id="@+id/test_category"
-            android:layout_width="149dp"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="28dp"
-            android:layout_marginTop="34dp"
-            android:autoSizeTextType="uniform"
-            android:fontFamily="@font/comfortaa"
-            android:lineHeight="40sp"
-            android:text="캐주얼"
-            android:textAppearance="@style/test_style" />
 
         <TextView
             android:id="@+id/test_profile_ID"
@@ -72,6 +68,20 @@
             android:text=""
             android:textAppearance="@style/test_style" />
 
+        <TextView
+            android:id="@+id/test_category"
+            android:layout_width="149dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="34dp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/comfortaa"
+            android:lineHeight="40sp"
+            android:text="캐주얼"
+            android:textAppearance="@style/test_style" />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/test_profile_img"
             android:layout_width="50dp"
@@ -81,16 +91,6 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="500dp"
             android:background="@drawable/ellipse" />
-
-        <ImageButton
-            android:id="@+id/test_profile_like_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="508dp"
-            android:background="@drawable/designer_like_icon"/>
 
     </RelativeLayout>
 
