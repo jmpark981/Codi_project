@@ -75,7 +75,7 @@ public class ShowHome extends Fragment {
         test_profile_like=view.findViewById(R.id.test_profile_like);
         test_profile_like_icon=view.findViewById(R.id.test_profile_like_icon);
         db=FirebaseFirestore.getInstance();
-        mStorageReference= FirebaseStorage.getInstance().getReference();
+        mStorageReference= FirebaseStorage.getInstance().getReference(); //storage 경로
         return view;
     }
 
@@ -188,7 +188,7 @@ public class ShowHome extends Fragment {
     }
 
     private void getClothesImage(String ID, String Clothes_Type, String Designer_ID) {      //사진 가져와서 imageview에 넣는 부분
-        String path=ID+"_"+Clothes_Type+"_"+Designer_ID+".jpg";     //나중에 path를 부여받으면 윗부분 수정하면 될 듯
+        String path=ID+"_"+Clothes_Type+"_"+Designer_ID+".jpg";     // 경로 이후의 이미지 이름
         Log.d("PPPTAG123", path);
         mStorageReference.child(path).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override

@@ -51,7 +51,7 @@
             android:fontFamily="@font/comfortaa"
             android:lineHeight="40sp"
             android:text="jcity_boy"
-            android:textAppearance="@style/test_style" />
+            android:textAppearance="@style/item_name_style" />
 
         <TextView
             android:id="@+id/test_profile_like"
@@ -66,7 +66,7 @@
             android:gravity="center"
             android:lineHeight="18sp"
             android:text=""
-            android:textAppearance="@style/test_style" />
+            android:textAppearance="@style/item_name_style" />
 
         <TextView
             android:id="@+id/test_category"
@@ -80,7 +80,7 @@
             android:fontFamily="@font/comfortaa"
             android:lineHeight="40sp"
             android:text="캐주얼"
-            android:textAppearance="@style/test_style" />
+            android:textAppearance="@style/item_name_style" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/test_profile_img"

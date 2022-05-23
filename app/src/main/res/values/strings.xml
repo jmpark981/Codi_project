@@ -17,4 +17,8 @@
     <string name="card_family">Family</string>
     <string name="some_id">코디 추천수</string>
     <string name="some_num">106 개</string>
+    <string name="coady">Coadi</string>
+    <string name="Casual">캐주얼</string>
+    <string name="Sports">스포츠</string>
+    <string name="Office">오피스</string>
 </resources>

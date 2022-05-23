@@ -9,28 +9,30 @@
 
     <EditText
         android:id="@+id/ID_EditText"
-        android:layout_width="306dp"
+        android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
         android:layout_marginTop="312dp"
         android:background="@drawable/rectangle_4"
         android:elevation="4dp"
         android:fontFamily="@font/comfortaa"
+        android:gravity="center|left"
         android:hint="@string/ID"
         android:inputType="text"
-        android:gravity="center|left"
         android:paddingLeft="15dp" />
 
 
     <EditText
         android:id="@+id/password_EditText"
-        android:layout_width="306dp"
+        android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
         android:layout_marginTop="392dp"
         android:background="@drawable/rectangle_4"
         android:elevation="4dp"
@@ -43,11 +45,12 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_Btn"
-        android:layout_width="306dp"
+        android:layout_width="match_parent"
         android:layout_height="43dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
         android:layout_marginTop="472dp"
         android:background="@drawable/rectangle_1"
         android:fontFamily="@font/comfortaa"

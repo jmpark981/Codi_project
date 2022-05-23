@@ -26,7 +26,7 @@ public class MainFrame extends AppCompatActivity {
         String us_name=intent.getStringExtra("username");       //ID 이름 넘기기
         bundle = new Bundle();
         bundle.putString("us_name", us_name);
-        bottomNavigationView=findViewById(R.id.bottom_Nav);         //하단바
+        bottomNavigationView=findViewById(R.id.bottom_Nav);          //하단바
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
         bottomNavigationView.setSelectedItemId(R.id.action_home);
         //showHome=new ShowHome();

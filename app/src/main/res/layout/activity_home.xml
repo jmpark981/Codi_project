@@ -6,16 +6,17 @@
 
     <FrameLayout
         android:id="@+id/main_frame"
-        android:layout_width="375dp"
-        android:layout_height="705dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_Nav">
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_Nav"
-        android:layout_width="375dp"
-        android:layout_height="83dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="705dp"
+        android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_menu"
         app:labelVisibilityMode="unlabeled"
         android:background="@drawable/rectangle_4" />
