@@ -7,12 +7,12 @@ public class CodiItem {    // item_frame 저장 내용
     private String codi_url;
     private String desi_url;
     private String desi_ID;
-    private int desi_like;
+    private long desi_like;
 
     public CodiItem(){
 
     }
-    public CodiItem(String category, String codi_url, String desi_url, String desi_ID, int desi_like) {
+    public CodiItem(String category, String codi_url, String desi_url, String desi_ID, long desi_like) {
         this.category = category;
         this.codi_url = codi_url;
         this.desi_url = desi_url;
@@ -40,7 +40,7 @@ public class CodiItem {    // item_frame 저장 내용
 
     public void setDesi_ID(String desi_ID) {this.desi_ID = desi_ID;}
 
-    public int getDesi_like() {return desi_like;}
+    public long getDesi_like() {return desi_like;}
 
-    public void setDesi_like(int desi_like) {this.desi_like = desi_like;}
+    public void setDesi_like(long desi_like) {this.desi_like = desi_like;}
 }

@@ -67,7 +67,7 @@ public class ShowUnion extends Fragment {
         sports_bt=view.findViewById(R.id.Sports);
         office_bt=view.findViewById(R.id.Office);
         ID=getArguments().getString("us_name");     //번들로 사용자ID 받아옴
-        //test_profile_like_icon=view.findViewById(R.id.like_icon);
+        test_profile_like_icon=view.findViewById(R.id.like_icon);
 
         db=FirebaseFirestore.getInstance();
         mStorageReference=FirebaseStorage.getInstance().getReference();
@@ -94,8 +94,7 @@ public class ShowUnion extends Fragment {
         // 각 카테고리 폴더에서 모든 이미지 추출 후 각 리스트에 저장
         ListUp(c_fullpass, codi_items);
 
-// 카테고리별 CodiItem들 저장
-
+        // 카테고리별 CodiItem들 저장
         codi_adapter = new CodiAdapter(codi_items, ID);
         R_codi_list.setAdapter(codi_adapter);
 
@@ -136,7 +135,7 @@ public class ShowUnion extends Fragment {
 
         R_codi_list.setLayoutManager(layoutManager);
 
-        // 아이템간 간격 조절
+        // 아이템간 간격 조절k
         R_codi_list.addItemDecoration(new RecyclerViewDecoration(30));
     }
     
@@ -169,29 +168,6 @@ public class ShowUnion extends Fragment {
             }
         });
     }
-
-    // 카테고리 리스트의 코디 이름으로부터 CodiItem 추출
-    private List<CodiItem> GetCodiItem(List<String> list, List<CodiItem> category_codi_items){
-        category_codi_items.clear();
-        String[] temp;    // 이미지 파일 이름 분리
-
-        for(String img_name: list){
-            CodiItem item = new CodiItem();
-            temp = img_name.split("_");
-            ID = temp[0];
-            Clothes_Type = temp[1];
-            desi_ID = temp[2].replace(".jpg", "");
-
-            //item.setCodi_url(Uri.parse(img_name));                   // 수정 필요
-            item.setCategory(Clothes_Type);
-            //item.setDesi_url(getDesignerImage(Uri.parse(desi_ID)));  // 수정 필요
-            item.setDesi_ID(desi_ID);
-
-            category_codi_items.add(item);  // 해당 카테고리에 CodiItem 추가
-        }
-        return category_codi_items;
-    }
-
 
     public class RecyclerViewDecoration extends RecyclerView.ItemDecoration {   // 리사이클러뷰 아이템간 상하 간격 설정
         private final int divHeight;

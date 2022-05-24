@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -27,6 +29,7 @@ public class CodiAdapter extends RecyclerView.Adapter<CodiAdapter.ViewHolder> {
 
     private List<CodiItem> mDataList;    // item들의 데이터 저장 공간
     private StorageReference mStorageReference;
+    private FirebaseFirestore db;                
     private Context context;
     private String ID;
 
@@ -34,6 +37,7 @@ public class CodiAdapter extends RecyclerView.Adapter<CodiAdapter.ViewHolder> {
         this.ID = ID;
         mDataList = dataList;
         mStorageReference = FirebaseStorage.getInstance().getReference(); //storage 경로
+        db=FirebaseFirestore.getInstance();
     }
 
     @NonNull
@@ -51,8 +55,9 @@ public class CodiAdapter extends RecyclerView.Adapter<CodiAdapter.ViewHolder> {
         holder.category.setText(item.getCategory());
         holder.desi_ID.setText(item.getDesi_ID());
 
-        getClothesImage(item.getCodi_url(), holder.codi_img);
-        getClothesImage(item.getDesi_url(), holder.desi_img);
+        getLikeNum(item.getDesi_ID(), holder.like_num);
+        getImage(item.getCodi_url(), holder.codi_img);  // hj_ver_2 함수 이름 변경해서 적용
+        getImage(item.getDesi_url(), holder.desi_img);
     }
 
     @Override
@@ -60,8 +65,8 @@ public class CodiAdapter extends RecyclerView.Adapter<CodiAdapter.ViewHolder> {
         return mDataList.size();
     }
 
-
-    private void getClothesImage(String path, ImageView image) {      //사진 가져와서 imageview에 넣는 부분
+    // hj_ver_2 함수 이름 변경(원래 getClothesImage 함수)
+    private void getImage(String path, ImageView image) {      //사진 가져와서 imageview에 넣는 부분
 
         mStorageReference.child(path).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -78,6 +83,36 @@ public class CodiAdapter extends RecyclerView.Adapter<CodiAdapter.ViewHolder> {
             }
         });
     }
+    
+    // hj_ver_2 추가 버튼 클릭 업데이트 기능
+    private void DesignerLikeUpdate(){
+        
+    }
+    
+    // 좋아요 개수 가저오기
+    private void getLikeNum(String designerId, TextView likeNum){
+        db.collection("person")
+                .document("designer")
+                .collection("id")
+                .document(designerId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if(documentSnapshot.exists()){
+                    long num=Long.parseLong(documentSnapshot.getString("like"));
+                    String num_format=formatNumber(num);
+                    likeNum.setText(num_format);
+                }else{
+                    Toast.makeText(context, "Document not exists", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(context, "Document error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -98,4 +133,32 @@ public class CodiAdapter extends RecyclerView.Adapter<CodiAdapter.ViewHolder> {
         }
     }
 
+    // hj_ver_2 추가
+    private static String formatNumber(long count) {        //좋아요 숫자 -> 읽기 쉬운 단위로
+        if (count < 1000) return "" + count;
+        int exp = (int) (Math.log(count) / Math.log(1000));
+        return String.format("%.1f %c", count / Math.pow(1000, exp),"kMGTPE".charAt(exp-1));
+    }
+
+    // hj_ver_2 추가
+    private static Long formatNumberReverse(String count) {     //좋아요 읽기 쉬운 단위로 -> 숫자 표현
+        String prefix=count.substring(0, count.length()-2);
+        Double prefix_num=Double.parseDouble(prefix);
+        Character suffix=count.charAt(count.length()-1);
+        if(suffix=='k'){
+            return (long)(prefix_num*1000);
+        }else if(suffix=='M'){
+            return (long)(prefix_num*10000);
+        }else if(suffix=='G'){
+            return (long)(prefix_num*100000);
+        }else if(suffix=='T'){
+            return (long)(prefix_num*1000000);
+        }else if(suffix=='P'){
+            return (long)(prefix_num*10000000);
+        }else if(suffix=='E'){
+            return (long)(prefix_num*100000000);
+        }else{
+            return Double.valueOf(prefix_num).longValue();
+        }
+    }
 }
